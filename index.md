@@ -1,0 +1,1 @@
+- when draw image, always take it from top left
