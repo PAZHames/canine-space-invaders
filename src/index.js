@@ -39,6 +39,12 @@ let humanColumns = 3;
 let humanCount = 0; // no of humans to defeat 
 let humanVelocityX = 1; // human moving speed
 
+// balls
+let ballArray = [];
+let ballVelocityY = -10; // ball moving speed - minus bc moving up 
+let ballImg;
+
+
 
 // on load function
 
@@ -64,8 +70,14 @@ window.onload = function() {
 
     createHumans();
 
+    ballImg = new Image();
+    ballImg.src= "src/images/tennisBall.png";
+
+    // shoot(); // do i need this? no...
+
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip); // why is this in this place specifically?
+    document.addEventListener("keyup", shoot); // keyup bc means have to let key go - can't just hold it down
 }
 
 
@@ -98,6 +110,20 @@ function update() {
             context.drawImage(humanImg, human.x, human.y, human.width, human.height);
         }
     }
+
+    // balls
+
+    for (let i=0; i < ballArray.length; i++) {
+        let ball = ballArray[i];
+        ball.y += ballVelocityY;
+
+        context.drawImage(ballImg, ball.x, ball.y, ball.width, ball.height); //used tennis ball image rather than fillstyle
+    }
+
+    // clear balls
+    while (ballArray.length > 0 && (ballArray[0].used || ballArray[0].y<0)) {
+        ballArray.shift();
+    }
 }
 
 function moveShip(e) {
@@ -126,4 +152,18 @@ function createHumans() {
         }
     }
     humanCount = humanArray.length; //keeping track of how many gone
+}
+
+function shoot (e) {
+    if (e.code== "Space") {
+       //shoot
+       let ball = {
+        x : ship.x + shipWidth *15/32,
+        y : ship.y,
+        width : tileSize/8,
+        height : tileSize/8, //changed to keep shape round
+        used : false
+       } 
+       ballArray.push(ball);
+    }
 }
