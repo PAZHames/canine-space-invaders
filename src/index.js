@@ -44,7 +44,8 @@ let ballArray = [];
 let ballVelocityY = -10; // ball moving speed - minus bc moving up 
 let ballImg;
 
-
+let score = 0;
+let gameOver = false;
 
 // on load function
 
@@ -87,6 +88,10 @@ window.onload = function() {
 function update() {
     requestAnimationFrame(update);
 
+    if (gameOver) {
+       return gameOverScreen();
+    }
+
     context.clearRect(0,0,board.width,board.height); //clears previous board so don't have multiple ships
     
     // dog
@@ -108,6 +113,10 @@ function update() {
                 }
             }
             context.drawImage(humanImg, human.x, human.y, human.width, human.height);
+
+            if(human.y >= ship.y) {
+                gameOver = true;
+            }
         }
     }
 
@@ -118,16 +127,48 @@ function update() {
         ball.y += ballVelocityY;
 
         context.drawImage(ballImg, ball.x, ball.y, ball.width, ball.height); //used tennis ball image rather than fillstyle
+
+        //ball collision with humans
+        for ( let j = 0; j< humanArray.length; j++) {
+            let human = humanArray[j];
+            if (!ball.used && human.alive && detectCollision(ball, human)) {
+                ball.used = true;
+                human.alive = false;
+                humanCount--;
+                score += 100;
+            }
+        }
     }
+
+
 
     // clear balls
     while (ballArray.length > 0 && (ballArray[0].used || ballArray[0].y<0)) {
-        ballArray.shift();
+        ballArray.shift(); // as soon as ball goes above canvas, deletes one from ballArray - stops them accumulating and slowing game down 
     }
+
+    // next cohort
+    if (humanCount==0) {
+        //increase number of humans in columns and rows by 1
+        humanColumns = Math.min(humanColumns +1, columns - 2); // didn't divide columns by y2 as human is only one tileSize wide - cap at 16 - 2 - max 14 columsn of humans?
+        humanRows = Math.min(humanRows + 1, rows-4); // cap at 16-4 - max 12 rows of humans
+        humanVelocityX += 0.2; //increase human speed with each level 
+        humanArray = [];
+        ballArray = []; // clear balls so ball used previously doesn't accidentally touch next bank of humans 
+        createHumans();
+    }
+
+    //score
+    context.fillStyle="white";
+    context.font="16px courier";
+    context.fillText(score, 5, 20);
+
 }
 
-function moveShip(e) {
-// e = event
+function moveShip(e) { // e = event
+    if (gameOver) {
+        return gameOverScreen();
+    }
     if (e.code == "ArrowLeft" && ship.x - shipVelocityX >=0) { //ensures ship will not go off the page 
         ship.x -= shipVelocityX; //move left - shipVeloctyX = tileSize of 1
     }
@@ -155,6 +196,9 @@ function createHumans() {
 }
 
 function shoot (e) {
+    if (gameOver) {
+        return gameOverScreen();
+    }
     if (e.code== "Space") {
        //shoot
        let ball = {
@@ -166,4 +210,23 @@ function shoot (e) {
        } 
        ballArray.push(ball);
     }
+}
+
+//condition for checking collsion between two objects 
+
+function detectCollision (a,b) {
+    return a.x < b.x + b.width && //a's top left doesn't reach b's top right
+    a.x + a.width > b.x && // a's top right corner passes b's top left corner 
+    a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
+    a.y + a.height > b.y; //a's bottom left corner passes b's top left corner
+}
+
+function gameOverScreen() {
+    context.fillStyle="white";
+    context.font="72px courier";
+    let text = "GAME OVER";
+    let textWidth = context.measureText(text).width; // to ensure the text is in centre of board regardless of screen size
+    let textX = (board.width - textWidth) / 2;
+    let textY = board.height / 2;
+    context.fillText(text, textX, textY);
 }
