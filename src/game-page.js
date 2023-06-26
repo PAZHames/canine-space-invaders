@@ -167,7 +167,7 @@ function update() {
     
     if (score<6800){
         document.getElementById("level-number").innerHTML="Level One"; //changes level number
-        document.getElementById("prize-image").src="src/images/shoe.jpg";
+        document.getElementById("prize-image").src="src/images/shoe.jpg"; //changes prize image
     }
     else if (score>6800 && score<23800) {
         document.getElementById("level-number").innerHTML="Level Two"

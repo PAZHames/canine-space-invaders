@@ -26,6 +26,7 @@ want to add
 - add little dog walking up and down looking really proud at bottom ??
 - can i make it mobile friendly?
 - can i create a leaderboard? can i let them choose own name/dog?
+- how stop page glitching on reload?
 
 challenges
 - different random image for people

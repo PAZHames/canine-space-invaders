@@ -23,6 +23,10 @@
     justify-content: center;
 }
 
+.glow {
+    text-shadow: white 0px 0px 5px;
+}
+
 
 /* In-built */
 
@@ -35,21 +39,16 @@ body {
 
 h1 {
     font-size: 72px;
-    color: var(--secondary-color);
-    text-shadow: white 0px 0px 2px;
     margin-bottom: 20px;
 }
-
-h2 {
-    font-size: 32px;
-    color: var(--highlight-color);
-}
-
 
 /* Classes */
 
 .game-body {
-    background: url(/src/images/background.jpg);
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ), url(/src/images/background.jpg);
     background-size: cover;
 }
 
@@ -107,6 +106,23 @@ place-items: center;
 } */
 
 /* IDs */
+
+#landing-h1 {
+    color: var(--secondary-color);
+}
+
+#landing-h2 {
+    color: var(--highlight-color);
+}
+
+#game-h1 {
+    color: white;
+}
+
+#game-h2 {
+    font-size: 32px;
+    color: var(--highlight-color);
+}
 
 #board {
     width: 540px;
