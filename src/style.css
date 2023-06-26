@@ -1,3 +1,14 @@
+/* Root */
+
+:root {
+    --primary-font: 'Electrolize', sans-serif;
+    --primary-color: #514D4A;
+    --secondary-color: #E25E54;
+    --highlight-color: #ED629A;
+    --default-transition: 250ms all ease-in-out;
+}
+
+
 /* Utilities */
 
 .flex-row {
@@ -12,19 +23,36 @@
     justify-content: center;
 }
 
+
+/* In-built */
+
 body {
     
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--primary-font);
     
 }
+
+h1 {
+    font-size: 72px;
+    color: var(--secondary-color);
+    text-shadow: white 0px 0px 2px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    color: var(--highlight-color);
+}
+
+
+/* Classes */
+
 .game-body {
     background: url(/src/images/background.jpg);
     background-size: cover;
 }
-h1,h2,h3,p {
-    color: #081630;
-}
+
 .col-4 {
     flex-basis: 33.33%;
     padding: 5px;
@@ -45,6 +73,36 @@ place-items: center;
     justify-content: center;
 }
 
+.play-button {
+    font-family: var(--primary-font);
+    background-color: white;
+    font-size: 24px;
+    border: solid 5px var(--secondary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 35px;
+    padding: 20px 40px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+.play-button:hover {
+    color: white;
+    background-color: var(--highlight-color);
+    border: solid 5px var(--highlight-color);
+    transition: var(--default-transition);
+}
+
+.play-link {
+    text-decoration: none;
+}
+
+.play-link:visited {
+    text-decoration: none;
+    color:inherit;
+}
+
+/* IDs */
+
 #board {
     width: 540px;
     height: 540px;
@@ -56,4 +114,25 @@ place-items: center;
     border: 3px solid white;
     border-radius: 20px;
 
+}
+
+
+#game-explanation {
+    line-height: 1.5;
+    color: var(--primary-color);
+    padding: 15px 20px;
+    border: dashed 2px var(--secondary-color);
+    border-radius: 5px;
+    margin: 15px 20px 30px 20px ;
+
+}
+
+#level-number {
+    font-size: 56px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    /* text-shadow: white 0px 0px 2px; */
 }

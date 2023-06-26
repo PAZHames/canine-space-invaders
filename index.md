@@ -29,3 +29,4 @@ want to add
 challenges
 - different random image for people
 - make people throw balls back
+- add tennis balls which fling across index screen?
