@@ -166,13 +166,18 @@ function update() {
     //levels
     
     if (score<6800){
-        document.getElementById("level-number").innerHTML="Level One" //changes level number
+        document.getElementById("level-number").innerHTML="Level One"; //changes level number
+        document.getElementById("prize-image").src="src/images/shoe.jpg";
     }
     else if (score>6800 && score<23800) {
         document.getElementById("level-number").innerHTML="Level Two"
+        document.getElementById("prize-image").src="src/images/roast.jpg";
+
     }
     else if (score>23800 && score<40000) {
         document.getElementById("level-number").innerHTML="Level Three"
+        document.getElementById("prize-image").src="src/images/passport.jpg";
+
     }
     else if (score === 40000) {
             document.getElementById("level-number").innerHTML="YOU WIN"

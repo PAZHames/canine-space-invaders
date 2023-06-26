@@ -13,6 +13,7 @@ things i did differently
 - had images for pieces - including balLs/bullets
 - changed dimensions 
 - ADDED GAME OVER SCREEN 
+- added in levels - changed to different levels at set scores - changed level and prize
 
 
 want to add
