@@ -163,6 +163,21 @@ function update() {
     context.font="16px courier";
     context.fillText(score, 5, 20);
 
+    //levels
+    
+    if (score<6800){
+        document.getElementById("level-number").innerHTML="Level One" //changes level number
+    }
+    else if (score>6800 && score<23800) {
+        document.getElementById("level-number").innerHTML="Level Two"
+    }
+    else if (score>23800 && score<40000) {
+        document.getElementById("level-number").innerHTML="Level Three"
+    }
+    else if (score === 40000) {
+            document.getElementById("level-number").innerHTML="YOU WIN"
+    }
+
 }
 
 function moveShip(e) { // e = event

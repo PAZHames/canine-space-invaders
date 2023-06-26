@@ -101,6 +101,11 @@ place-items: center;
     color:inherit;
 }
 
+/* .prize-col {
+    background-image: url(/src/images/shoe.jpg);
+    background-size: cover;
+} */
+
 /* IDs */
 
 #board {
@@ -135,4 +140,13 @@ place-items: center;
     padding-bottom: 30px;
     border-radius: 5px;
     /* text-shadow: white 0px 0px 2px; */
+}
+#prize-image {
+    max-width: 100%;
+}
+
+#prize {
+    background-color: white;
+    color: var(--secondary-color);
+    font-size: 32px;
 }
