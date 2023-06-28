@@ -14,6 +14,7 @@ things i did differently
 - changed dimensions 
 - ADDED GAME OVER SCREEN 
 - added in levels - changed to different levels at set scores - changed level and prize
+- made humans random - of two images
 
 
 want to add

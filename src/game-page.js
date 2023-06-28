@@ -28,11 +28,11 @@ let shipVelocityX = tileSize; //speed ship moves - alwasy moves along x plain
 // humans
 
 let humanArray = [];
-let humanWidth = tileSize; // adapted tile width to make image work better! from * 2
+let humanWidth = tileSize/2; // adapted tile width to make image work better! from * 2
 let humanHeight = tileSize;
 let humanX = tileSize;
 let humanY = tileSize;
-let humanImg;
+// let humanImg; moved inside loop 
 
 let humanRows = 2;
 let humanColumns = 3;
@@ -66,15 +66,10 @@ window.onload = function() {
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
 
-    humanImg = new Image();
-    humanImg.src = "src/images/angryMan.png";
-
     createHumans();
 
     ballImg = new Image();
     ballImg.src= "src/images/tennisBall.png";
-
-    // shoot(); // do i need this? no...
 
     requestAnimationFrame(update);
     document.addEventListener("keydown", moveShip); // why is this in this place specifically?
@@ -112,7 +107,7 @@ function update() {
                     humanArray[j].y += humanHeight;
                 }
             }
-            context.drawImage(humanImg, human.x, human.y, human.width, human.height);
+            context.drawImage(human.img, human.x, human.y, human.width, human.height); //human.img defined in createHumans for loop
 
             if(human.y >= ship.y) {
                 gameOver = true;
@@ -197,18 +192,34 @@ function moveShip(e) { // e = event
     }
 }
 
+//randomise humans
+
+function randomiseHumans() {
+    var randomHumans = ["src/images/angryMan.png", "src/images/angryWoman1.png"]; //populate array
+
+    var randomNumber = Math.floor(Math.random() * randomHumans.length); //create random number
+    var randomImage = randomHumans[randomNumber]; //set random image
+
+    return randomImage; //return random element
+
+}
+
 function createHumans() {
     for (let c=0; c < humanColumns; c++) {
         for (let r=0; r < humanRows; r++) {
+            let randomHuman = randomiseHumans(); //call randomiseHumans function 
             let human = {
-                img : humanImg,
+                img : new Image(), //moved to inside the loop, so each individual human is randomised - was previosuly outsdie the loop
                 x : humanX + c*humanWidth,
                 y : humanY + r*humanHeight,
                 width : humanWidth,
                 height : humanHeight,
                 alive : true
             }
-
+            human.img.onload = function () { // adds onload to ensure the image loaded before drawing
+                context.drawImage(human.img, human.x, human.y, human.width, human.height);
+              };
+            human.img.src = randomHuman;
             humanArray.push(human);
         }
     }
@@ -240,6 +251,8 @@ function detectCollision (a,b) {
     a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
     a.y + a.height > b.y; //a's bottom left corner passes b's top left corner
 }
+
+//game over screen
 
 function gameOverScreen() {
     context.fillStyle="white";

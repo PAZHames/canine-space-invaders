@@ -121,7 +121,7 @@ place-items: center;
 
 #game-h2 {
     font-size: 32px;
-    color: var(--highlight-color);
+    color: var(--secondary-color);
 }
 
 #board {
@@ -167,7 +167,7 @@ place-items: center;
 
 #prize {
     background-color: white;
-    color: var(--highlight-color);
+    color: var(--secondary-color);
     font-size: 32px;
     margin-bottom: 20px;
     padding: 15px 30px;
