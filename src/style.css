@@ -44,29 +44,23 @@ h1 {
 
 /* Classes */
 
-.game-body {
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ), url(/src/images/background.jpg);
-    background-size: cover;
-}
+/* landing page classes */
 
-.col-4 {
+.landing-image {
+    display: grid;
+    max-width: 100%;
+ max-height: 100%;
+ place-items: center;
+ }
+
+ .col-4 {
     flex-basis: 33.33%;
     padding: 5px;
     box-sizing: border-box;
     text-align: center;
   }
 
-.landing-image {
-   display: grid;
-   max-width: 100%;
-max-height: 100%;
-place-items: center;
-}
-
-.landing-page-row {
+  .landing-page-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -100,12 +94,7 @@ place-items: center;
     color:inherit;
 }
 
-/* .prize-col {
-    background-image: url(/src/images/shoe.jpg);
-    background-size: cover;
-} */
-
-/* IDs */
+/* landing IDs */
 
 #landing-h1 {
     color: var(--secondary-color);
@@ -114,6 +103,28 @@ place-items: center;
 #landing-h2 {
     color: var(--highlight-color);
 }
+
+#game-explanation {
+    line-height: 1.5;
+    color: var(--primary-color);
+    padding: 15px 20px;
+    border: dashed 2px var(--secondary-color);
+    border-radius: 5px;
+    margin: 15px 20px 30px 20px ;
+
+}
+
+/* game page classes */
+
+.game-body {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ), url(/src/images/background.jpg);
+    background-size: cover;
+}
+
+/* game page IDs */
 
 #game-h1 {
     color: white;
@@ -137,17 +148,6 @@ place-items: center;
 
 }
 
-
-#game-explanation {
-    line-height: 1.5;
-    color: var(--primary-color);
-    padding: 15px 20px;
-    border: dashed 2px var(--secondary-color);
-    border-radius: 5px;
-    margin: 15px 20px 30px 20px ;
-
-}
-
 #level-number {
     font-size: 42px;
     background-color: white;
@@ -156,13 +156,6 @@ place-items: center;
     border-radius: 5px;
     max-width: 100%;
     /* text-shadow: white 0px 0px 2px; */
-}
-#prize-image {
-    max-width: 50%;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-    border: 3px solid white;
 }
 
 #prize {
@@ -173,3 +166,12 @@ place-items: center;
     padding: 15px 30px;
     border-radius: 5px;
 }
+
+#prize-image {
+    max-width: 50%;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+    border: 3px solid white;
+}
+
