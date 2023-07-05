@@ -99,9 +99,10 @@ function update() {
             human.x += humanVelocityX;
 
             //if human touches borders
-            if (human.x + human.width >= board.width || human.x <= 0 ) {
+            if (human.x + human.width > board.width || human.x <= 0 ) {
                 humanVelocityX *= -1;
                 human.x += humanVelocityX*2; //solves humans becoming out of sync/out of line
+                
                 // move humans forward by 1 row
                 for (let j=0; j< humanArray.length; j++) {
                     humanArray[j].y += humanHeight;

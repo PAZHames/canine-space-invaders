@@ -11,16 +11,37 @@
     <title>Canine Space Invaders</title>
 </head>
 <body>
+    <div class="navbar"></div>
     <h1 id="landing-h1">Canine Your-Space-Invaders</h1>
     <h2 id="landing-h2">Protect Your Prize</h2>
-    <p id="game-explanation"> You are a winner. You have gained precious bounty from the humans, but they want it back! Protect your prize at all costs by fending off your attackers with your greatest weapon, the tennis ball. At each level, the prize gets greater. You defend it, you keep it. And if you keep it, what can't you achieve? <br><br>⬅️ ➡️ Left/right arrows to move and 💥 space bar to fling those balls! 🎾</p>
-    <button class="play-button"><a href="/game-page.html" class="play-link">Play to Protect</a></button>
-    <div class="flex-row landing-page-row">
-        
-        <div class="flex-col"><img src="src/images/bin.jpg" alt="" class="landing-image"></div>
-        <div class="flex-col"><img src="src/images/pillow.jpg" alt="" class="landing-image">
+    <p id="game-explanation">
+        You are already a winner. You have gained precious bounty from the humans, but they want it back! Protect your prize at all costs by fending off your attackers with your greatest weapon, the tennis ball. At each level, the prize gets greater. You defend it, you keep it. And if you keep it, what can't you achieve? 
+        <br><br>
+        ⬅️ ➡️ Left/right arrows to move and 💥 space bar to fling those balls! 🎾
+    </p>
+
+    <!-- buttons -->
+    <button class="primary-button">
+        <a href="/game-page.html" class="button-link">Play to Protect</a>
+    </button>
+    <br>
+    <br>
+    <button class="secondary-button">
+        <a href="leader-board.html" class="button-link">View Leaderboard</a> 
+        <!-- turning blue - fix -->
+    </button>
+   
+    <!-- images -->
+    <div class="flex-row landing-page-row"> 
+        <div class="flex-col">
+            <img src="src/images/bin.jpg" alt="" class="landing-image">
         </div>
-        <div class="flex-col"><img src="src/images/loo-roll.jpg" alt="" class="landing-image"></div>
+        <div class="flex-col">
+            <img src="src/images/pillow.jpg" alt="" class="landing-image">
+        </div>
+        <div class="flex-col">
+            <img src="src/images/loo-roll.jpg" alt="" class="landing-image">
+        </div>
     </div>
     <script src="src/index.js"></script>
 </body>

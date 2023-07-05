@@ -3,7 +3,7 @@
 :root {
     --primary-font: 'Electrolize', sans-serif;
     --primary-color: #514D4A;
-    --secondary-color: #F84342;
+    --secondary-color: #86EC2C;
     --highlight-color: #F50295;
     --default-transition: 250ms all ease-in-out;
 }
@@ -27,6 +27,18 @@
     text-shadow: white 0px 0px 5px;
 }
 
+.button-link {
+    text-decoration: none;
+}
+
+.button-link:visited {
+    text-decoration: none;
+    color:inherit;
+}
+
+.light {
+    color: white;
+}
 
 /* In-built */
 
@@ -66,32 +78,42 @@ h1 {
     justify-content: center;
 }
 
-.play-button {
+.primary-button {
     font-family: var(--primary-font);
-    background-color: white;
+    color: white;
+    background-color: var(--highlight-color);
     font-size: 24px;
-    border: solid 5px var(--secondary-color);
-    color: var(--secondary-color);
     text-decoration: none;
+    border: solid 5px var(--highlight-color);
     border-radius: 35px;
     padding: 20px 40px;
     box-shadow: 5px 5px 5px darkgray;
 }
 
-.play-button:hover {
-    color: white;
-    background-color: var(--highlight-color);
-    border: solid 5px var(--highlight-color);
+.primary-button:hover {
+    background-color: white;
+    color: var(--secondary-color);
+    border: solid 5px var(--secondary-color);
     transition: var(--default-transition);
 }
 
-.play-link {
+.secondary-button {
+    font-family: var(--primary-font);
+    color: var(--secondary-color);
+    background-color: white;
+    font-size: 16px;
     text-decoration: none;
+    border: solid 5px var(--secondary-color);
+    border-radius: 35px;
+    padding: 20px 40px;
+    box-shadow: 5px 5px 5px darkgray;
 }
 
-.play-link:visited {
-    text-decoration: none;
-    color:inherit;
+.secondary-button:hover {
+    color: white;
+    background-color: var(--highlight-color);
+    border: solid 5px var(--highlight-color);
+    transition: var(--default-transition); 
 }
 
 /* landing IDs */
@@ -126,16 +148,12 @@ h1 {
 
 /* game page IDs */
 
-#game-h1 {
-    color: white;
-}
-
 #game-h2 {
     font-size: 32px;
     color: var(--secondary-color);
 }
 
-#board {
+#board, #leaderboard-section {
     width: 540px;
     height: 540px;
     background: url(/src/images/game-board-background.jpg);
@@ -175,3 +193,11 @@ h1 {
     border: 3px solid white;
 }
 
+/* leaderboard classes */
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+/* leaderbaord section with game board */
