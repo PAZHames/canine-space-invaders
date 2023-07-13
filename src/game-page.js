@@ -46,6 +46,7 @@ let ballImg;
 
 let score = 0;
 let gameOver = false;
+let gameWon = false;
 
 // on load function
 
@@ -85,6 +86,10 @@ function update() {
 
     if (gameOver) {
        return gameOverScreen();
+    }
+
+    if (gameWon) {
+        return gameWonScreen();
     }
 
     context.clearRect(0,0,board.width,board.height); //clears previous board so don't have multiple ships
@@ -176,7 +181,7 @@ function update() {
 
     }
     else if (score === 40000) {
-            document.getElementById("level-number").innerHTML="YOU WIN"
+            gameWon = "true";
     }
 
 }
@@ -263,5 +268,23 @@ function gameOverScreen() {
     let textX = (board.width - textWidth) / 2;
     let textY = board.height / 2;
     context.fillText(text, textX, textY);
+     // Delay for 1 second before navigating to the leaderboard page
+  setTimeout(() => {
+    setGamePlayed(score);}, 1000);
+}
+
+// win screen
+
+function gameWonScreen() {
+    context.fillStyle="white";
+    context.font="72px courier";
+    let text = "YOU WIN! 🎉🐶👑";
+    let textWidth = context.measureText(text).width; // to ensure the text is in centre of board regardless of screen size
+    let textX = (board.width - textWidth) / 2;
+    let textY = board.height / 2;
+    context.fillText(text, textX, textY);
+     // Delay for 1 second before navigating to the leaderboard page
+  setTimeout(() => {
+    setGamePlayed(score);}, 1000);
 }
 

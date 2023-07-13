@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css">
+    <title>Leaderboard</title>
+</head>
+<body class="game-body">
+    <h1 class="light">Leaderboard</h1>
+    <div class="wrapper">
+        <div id="leaderboard-section"> 
+        </div>
+    </div>
+    <div id="leaderboardPopup" class="popup">
+        <div class="popup-content">
+          <h2>Congratulations! You Prevailed!</h2>
+          <form id="leaderboardForm">
+                <label for="playerName">What is your name, brave warrior?</label>
+                <input type="text" id="playerName" required>
+                <label for="imageSelect">Choose an image:</label>
+                <select id="imageSelect" required>
+                  <option value="src/images/dogs/boxer.jpg">Boxer</option>
+                  <option value="src/images/dogs/bulldog.jpg">Bulldog</option>
+                  <option value="src/images/dogs/chihuahua.jpg">Chihuahua</option>
+                  <option value="src/images/dogs/collie.jpg">Collie</option>
+                  <option value="src/images/dogs/doberman.jpg">Doberman</option>
+                </select>
+              
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+      </div>
+   
+<!-- navigation buttons -->
+    
+    <button class="secondary-button"><a href="index.html" class="button-link">Home</a></button>
+    <button class="primary-button"><a href="game-page.html" class="button-link">Play again</a></button>
+
+    <script src="src/leaderboard.js"></script>
+    <script src="src/game-page.js"></script>
+</body>
+</html>
