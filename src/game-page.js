@@ -267,10 +267,8 @@ function gameOverScreen() {
     let textWidth = context.measureText(text).width; // to ensure the text is in centre of board regardless of screen size
     let textX = (board.width - textWidth) / 2;
     let textY = board.height / 2;
-    context.fillText(text, textX, textY);
-     // Delay for 1 second before navigating to the leaderboard page
-  setTimeout(() => {
-    setGamePlayed(score);}, 1000);
+    context.fillText(text, textX, textY); 
+    setGamePlayed();
 }
 
 // win screen
@@ -283,8 +281,93 @@ function gameWonScreen() {
     let textX = (board.width - textWidth) / 2;
     let textY = board.height / 2;
     context.fillText(text, textX, textY);
-     // Delay for 1 second before navigating to the leaderboard page
-  setTimeout(() => {
-    setGamePlayed(score);}, 1000);
+    setGamePlayed();
+}
+
+
+
+// LEADERBOARD
+
+
+// Leaderboard data structure
+let leaderboard = [];
+
+let gamePlayed = false; // Flag to indicate if the game has been played
+
+
+
+
+// Function to add a player to the leaderboard
+function addPlayerToLeaderboard(name, image, score) {
+  let player = {
+    name: name,
+    image: image,
+    score: score
+  };
+  leaderboard.push(player);
+  sortLeaderboard();
+  saveLeaderboard();
+  displayLeaderboard();
+}
+
+// Function to save leaderboard data to local storage
+function saveLeaderboard() {
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+  }
+
+// Function to sort the leaderboard
+function sortLeaderboard() {
+  leaderboard.sort((a, b) => b.score - a.score);
+}
+
+// Function to display the leaderboard
+function displayLeaderboard() {
+  let leaderboardContainer = document.getElementById('leaderboard');
+  leaderboardContainer.innerHTML = '';
+
+  leaderboard.forEach((player, index) => {
+    let playerElement = document.createElement('div');
+    playerElement.innerHTML = `${index + 1}. ${player.name} - Score: ${player.score}`;
+    leaderboardContainer.appendChild(playerElement);
+  });
+}
+
+// Function to set the game played flag
+function setGamePlayed() {
+    gamePlayed = true;
+    openPopup();
+  }
+
+// Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault(); // Prevent form from submitting and refreshing the page
+  
+    let playerName = document.getElementById('playerName').value;
+    let imageSelect = document.getElementById('imageSelect');
+    let selectedImage = imageSelect.options[imageSelect.selectedIndex].value;
+    let score = localStorage.getItem('score');
+  
+    addPlayerToLeaderboard(playerName, selectedImage, score);
+    console.log('open');
+    // Clear form inputs
+    document.getElementById('playerName').value = '';
+    imageSelect.selectedIndex = 0;
+  
+    closePopup();
+  
+    window.location.href = '../leaderboard.html';
+  }
+
+// Function to open the popup
+function openPopup() {
+  document.getElementById('leaderboardPopup').style.display = 'block';
+  document.getElementById('leaderboardForm').addEventListener('submit', handleSubmit);
+}
+
+
+
+// Function to close the popup
+function closePopup() {
+  document.getElementById('leaderboardPopup').style.display = 'none';
 }
 
