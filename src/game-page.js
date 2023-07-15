@@ -355,7 +355,7 @@ function handleSubmit(event) {
   
     closePopup();
   
-    window.location.href = '../leaderboard.html';
+    displayLeaderboard();
   }
 
 // Function to open the popup
