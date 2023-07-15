@@ -1,4 +1,4 @@
-# Canine Your-Space-invaders
+# Canine Your-Space-Invaders
 
 
 A JavaScript Space Invaders style game built using a canvas. I initially built a basic version of this game using a tutorial, writing comments to myself along the way to ensure I understood the logic. I then removed those comments which would not be particularly helpful for future maintenance. Once I was certain I had a full grasp of the game’s basic functioning, I began adding my own components. I started with the images within the game play functioning and then added levels. I then built the game over and game won functions. I then worked on the CSS for the landing and game pages. Afterwards I began adding in the logic for the leaderboard and adding scores and details to local storage. 
