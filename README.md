@@ -7,6 +7,7 @@ A JavaScript Space Invaders style game built using a canvas. I initially built a
 Use the following controls to play Canine Space Invaders:
 
 Left/Right Arrows: Move your character left or right.
+
 Space Bar: Fling tennis balls to attack the invaders.
 
 # Inspiration
