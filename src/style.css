@@ -8,6 +8,9 @@
     --default-transition: 250ms all ease-in-out;
 }
 
+footer {
+    padding: 10px;
+}
 
 /* Utilities */
 

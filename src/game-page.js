@@ -275,7 +275,7 @@ function gameOverScreen() {
 
 function gameWonScreen() {
     context.fillStyle="white";
-    context.font="72px courier";
+    context.font="56px courier";
     let text = "YOU WIN! 🎉🐶👑";
     let textWidth = context.measureText(text).width; // to ensure the text is in centre of board regardless of screen size
     let textX = (board.width - textWidth) / 2;
