@@ -146,7 +146,7 @@ h1 {
     background: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
-      ), url(src/images/background.jpg);
+      ), url(./images/background.jpg);
     background-size: cover;
 }
 
@@ -160,7 +160,7 @@ h1 {
 #board, #leaderboard-section {
     width: 540px;
     height: 540px;
-    background: url(src/images/game-board-background.jpg);
+    background: url(./images/game-board-background.jpg);
     background-size: cover;
     display: flex;
     flex-wrap: wrap;
